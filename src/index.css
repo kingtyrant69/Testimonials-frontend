@@ -1,0 +1,360 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root{
+    @apply h-full;
+    @apply overflow-x-hidden;
+    --hover-color:black;
+    --hamburger-color:black;
+}
+
+body{
+    @apply h-full;
+}
+
+
+@layer components {
+    .group:hover .hover-line::before {
+        width: 100%;
+      }
+
+    .hover-line::before {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 110%;
+        left: 52%;
+        transform: translateX(-50%);
+        height: 2.2px;
+        border-radius: 0.3em;
+        width: 0;
+        background: var(--hover-color);
+        transition: width 0.14s ease-in-out;
+      }
+
+      .footerLink{
+        text-decoration: none;
+        color: #efefef;
+        font-family: var(--primary-font);
+        font-size: .98;
+        font-weight: 400;
+        line-height: 1.5;
+        margin-bottom: .54em;
+        transition: .24s;
+        position: relative;
+      }
+
+      .footerLink:hover{
+        transform:translate(1em);
+        transition:.24s;
+      }
+
+      .footerLink:before{
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: -1em;
+        transform: translateY(-50%);
+        background: #efefef;
+        width: .24em;
+        height: 1em;
+        opacity: 0;
+        transition: .24s;
+      }
+      .footerLink:hover:before{
+        opacity:1
+      }
+
+    
+.burger {
+    position: relative;
+    width: 30px;
+    height: 20px;
+    background: transparent;
+    cursor: pointer;
+    display: block;
+  }
+  
+  .burger input {
+    display: none;
+  }
+  
+  .burger span {
+    display: block;
+    position: absolute;
+    height: 4px;
+    width: 100%;
+    background: var(--hamburger-color);
+    border-radius: 9px;
+    opacity: 1;
+    left: 0;
+    transform: rotate(0deg);
+    transition: .25s ease-in-out;
+  }
+  
+  .burger span:nth-of-type(1) {
+    top: 0px;
+    transform-origin: left center;
+  }
+  
+  .burger span:nth-of-type(2) {
+    top: 50%;
+    transform: translateY(-50%);
+    transform-origin: left center;
+  }
+  
+  .burger span:nth-of-type(3) {
+    top: 100%;
+    transform-origin: left center;
+    transform: translateY(-100%);
+  }
+  
+  .burger input:checked ~ span:nth-of-type(1) {
+    transform: rotate(45deg);
+    top: 0px;
+    left: 4px;
+  }
+  
+  .burger input:checked ~ span:nth-of-type(2) {
+    width: 0%;
+    opacity: 0;
+  }
+  
+  .burger input:checked ~ span:nth-of-type(3) {
+    transform: rotate(-45deg);
+    top: 21px;
+    left: 4px;
+  }
+
+  /* From Uiverse.io by juanpabl0svn */ 
+/* The switch - the box around the slider */
+.switch {
+  font-size: 12px;
+  position: relative;
+  display: inline-block;
+  width: 3.5em;
+  height: 2em;
+  cursor: pointer;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  --background: #20262c;
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--background);
+  transition: 0.5s;
+  border-radius: 30px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 1.4em;
+  width: 1.4em;
+  border-radius: 50%;
+  left: 10%;
+  bottom: 15%;
+  box-shadow: inset 8px -4px 0px 0px #ececd9, -4px 1px 4px 0px #dadada;
+  background: var(--background);
+  transition: 0.5s;
+}
+
+.decoration {
+  position: absolute;
+  content: "";
+  height: 2px;
+  width: 2px;
+  border-radius: 50%;
+  right: 20%;
+  top: 15%;
+  background: #e5f041e6;
+  backdrop-filter: blur(10px);
+  transition: all 0.5s;
+  box-shadow: -7px 10px 0 #e5f041e6, 8px 15px 0 #e5f041e6, -17px 1px 0 #e5f041e6,
+    -20px 10px 0 #e5f041e6, -7px 23px 0 #e5f041e6, -15px 25px 0 #e5f041e6;
+}
+
+input:checked ~ .decoration {
+  transform: translateX(-20px);
+  width: 10px;
+  height: 10px;
+  background: white;
+  box-shadow: -12px 0 0 white, -6px 0 0 1.6px white, 5px 15px 0 1px white,
+    1px 17px 0 white, 10px 17px 0 white;
+}
+
+input:checked + .slider {
+  background-color: #5494de;
+}
+
+input:checked + .slider:before {
+  transform: translateX(100%);
+  box-shadow: inset 15px -4px 0px 15px #efdf2b, 0 0 10px 0px #efdf2b;
+}
+
+/* From Uiverse.io by OnCloud125252 */ 
+/* Note that you only needs to edit the config to customize the button! */
+
+.plusButton {
+  /* Config start */
+  --plus_sideLength: 1.4rem;
+  --plus_topRightTriangleSideLength: 0.3rem;
+  /* Config end */
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid white;
+  width: var(--plus_sideLength);
+  height: var(--plus_sideLength);
+  background-color: #000000;
+  overflow: hidden;
+}
+
+.plusButton::before {
+  position: absolute;
+  content: "";
+  top: 0;
+  right: 0;
+  width: 0;
+  height: 0;
+  border-width: 0 var(--plus_topRightTriangleSideLength) var(--plus_topRightTriangleSideLength) 0;
+  border-style: solid;
+  border-color: transparent white transparent transparent;
+  transition-timing-function: ease-in-out;
+  transition-duration: 0.2s;
+}
+
+.plusButton:hover {
+  cursor: pointer;
+}
+
+.plusButton:hover::before {
+  --plus_topRightTriangleSideLength: calc(var(--plus_sideLength) * 2);
+}
+
+.plusButton:focus-visible::before {
+  --plus_topRightTriangleSideLength: calc(var(--plus_sideLength) * 2);
+}
+
+.plusButton>.plusIcon {
+  fill: white;
+  width: calc(var(--plus_sideLength) * 0.7);
+  height: calc(var(--plus_sideLength) * 0.7);
+  z-index: 1;
+  transition-timing-function: ease-in-out;
+  transition-duration: 0.2s;
+}
+
+.plusButton:hover>.plusIcon {
+  fill: black;
+  transform: rotate(180deg);
+}
+
+.plusButton:focus-visible>.plusIcon {
+  fill: black;
+  transform: rotate(180deg);
+}
+
+.rating {
+  display: flex;
+  flex-direction: row-reverse;
+  gap: 0.3rem;
+  --stroke: #666;
+  --fill: #ffc73a;
+}
+
+.rating input {
+  appearance: unset;
+}
+
+.rating label {
+  cursor: pointer;
+}
+
+.rating svg {
+  width: 2rem;
+  height: 2rem;
+  overflow: visible;
+  fill: transparent;
+  stroke: var(--stroke);
+  stroke-linejoin: bevel;
+  stroke-dasharray: 12;
+  animation: idle 4s linear infinite;
+  transition: stroke 0.2s, fill 0.5s;
+}
+
+@keyframes idle {
+  from {
+    stroke-dashoffset: 24;
+  }
+}
+
+.rating label:hover svg {
+  stroke: var(--fill);
+}
+
+.rating input:checked ~ label svg {
+  transition: 0s;
+  animation: idle 4s linear infinite, yippee 0.75s backwards;
+  fill: var(--fill);
+  stroke: var(--fill);
+  stroke-opacity: 0;
+  stroke-dasharray: 0;
+  stroke-linejoin: miter;
+  stroke-width: 8px;
+}
+
+@keyframes yippee {
+  0% {
+    transform: scale(1);
+    fill: var(--fill);
+    fill-opacity: 0;
+    stroke-opacity: 1;
+    stroke: var(--stroke);
+    stroke-dasharray: 10;
+    stroke-width: 1px;
+    stroke-linejoin: bevel;
+  }
+
+  30% {
+    transform: scale(0);
+    fill: var(--fill);
+    fill-opacity: 0;
+    stroke-opacity: 1;
+    stroke: var(--stroke);
+    stroke-dasharray: 10;
+    stroke-width: 1px;
+    stroke-linejoin: bevel;
+  }
+
+  30.1% {
+    stroke: var(--fill);
+    stroke-dasharray: 0;
+    stroke-linejoin: miter;
+    stroke-width: 8px;
+  }
+
+  60% {
+    transform: scale(1.2);
+    fill: var(--fill);
+  }
+}
+
+
+  
+  }
+
