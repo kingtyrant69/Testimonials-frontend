@@ -37,6 +37,7 @@ const getSpaceById = async (spaceId) => {
 const getUserSpaces = async () => {
     try {
         const { data } = await axiosPrivate.get('/v1/spaces')
+        console.log(data)
         return data
     } catch (error) {
         console.log(error)

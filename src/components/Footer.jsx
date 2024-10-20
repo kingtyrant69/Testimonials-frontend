@@ -5,7 +5,7 @@ const Footer = () => {
     return null;
   }
   return (
-    <footer className='bg-black p-20 grid lg:grid-cols-9 grid-cols-1 bottom-0 gap-8 w-full'>
+    <footer className='bg-black lg:p-20 p-10 flex lg:flex-row flex-col-reverse justify-between bottom-0 gap-8 w-full'>
       <div className=''>
         <p className="footerLink"><Link to="/about">About</Link></p>
         <p className="footerLink"><Link to="/contact">Contact Us</Link></p>

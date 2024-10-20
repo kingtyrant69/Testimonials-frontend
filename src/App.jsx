@@ -33,7 +33,7 @@ function App() {
                 <Route element={<ProtectedRoute/>}>
                   <Route path="/dashboard" element={<Dashboard/>}/>
                   <Route path='/products/:spaceId' element={<ProductDetails/>}/>
-                </Route>
+                </Route>  
                 <Route path="/product" element={<Product/>}/>
                 <Route path="/about" element={<About/>}/>
                 <Route path="/support" element={<Support/>}/>

@@ -4,6 +4,7 @@ import Space from '../../components/Space'
 import {FaBriefcase, FaPencilAlt, FaVideo} from 'react-icons/fa'
 import useSpaceModal from '../../hooks/useSpaceModal'
 import { useState } from 'react'
+import { getUserSpaces } from '../../services/space.service'
 const Dashboard = () => {
   const spaceModal = useSpaceModal();
   const handleClick = () =>{
@@ -12,6 +13,13 @@ const Dashboard = () => {
   const [videoCount, setVideoCount] = useState(0);
   const [plan, setPlan] = useState("Free Plan")
   const [textCount, setTextCount] = useState(0);  
+  const spaces = getUserSpaces()
+
+  spaces.then((res) => {
+    setVideoCount(res.filter((space) => space.type === "Video").length)
+    setTextCount(res.filter((space) => space.type === "Text").length)
+  })
+  
   return (
     <div className='lg:mx-40 mx-2 my-10'> 
       <div className='text-5xl tracking-wide p-4 font-semibold'>Welcome Back👋</div>
@@ -51,9 +59,7 @@ const Dashboard = () => {
             </div>
             {/* <hr className='border-dotted my-3 border-slate-600' /> */}
             <div className='my-10 py-5'>
-              <Link to="/products/aman">
               <Space/>
-            </Link>
             </div>
           </div>
       <SpaceModal/>

@@ -13,10 +13,12 @@ const Space = () => {
       <img className='col-span-2 w-20' src='image.png' alt="SpLogo" />
       <div className="flex flex-col px-5 col-span-6">
         <p className="px-5">{spaceName}</p>
-        <div>
-        <span className="px-5">Video: {videoCount}</span>
-        <span>Text: {textCount}</span>
-        </div>
+        <Link to="/products/aman">
+          <div>
+          <span className="px-5">Video: {videoCount}</span>
+          <span>Text: {textCount}</span>
+          </div>
+        </Link>
     </div>
         <SpaceSettings/>
     </div>
